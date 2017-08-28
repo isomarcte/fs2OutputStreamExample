@@ -73,7 +73,7 @@ object Main {
     for {
       rand <- Stream.eval(Effect[E].delay(new Random()))
       _ <- this.sizedBytes(rand)(
-        1024L * 1024L * 1024L * 5L // 5GiB
+        1024L * 1024L * 1024L * 3L // 3GiB
       ).to(fs2.io.file.writeAll(path, List(StandardOpenOption.WRITE)))
     } yield (())
 
